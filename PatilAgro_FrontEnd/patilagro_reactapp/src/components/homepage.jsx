@@ -85,14 +85,12 @@ export  default function HomePage(){
       {renderComponent()}
       </div>
 
-     
-      <div>
-        <footer className="footer bg-secondary py-3 mt-auto">
-            <Container>
+     <div>
+     <div className=" text-center footer bg-secondary py-3 mt-auto">
                 <p className="text-center m-0">&copy; 2024 Patil AgroMart| All rights reserved.</p>
-            </Container>
-        </footer>
-        </div>
+            </div>
+     </div>
+    
      
 
     </>
