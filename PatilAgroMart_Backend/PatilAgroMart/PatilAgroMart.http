@@ -1,0 +1,6 @@
+@PatilAgroMart_HostAddress = http://localhost:5122
+
+GET {{PatilAgroMart_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

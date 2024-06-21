@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react"
 
 import { Nav, NavDropdown,Navbar,Container} from "react-bootstrap";
 import logo from './Patil_agro.jpg'; 
+import cart from './cart.png'
 import Footer from "./footer";
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
 import { useNavigate } from "react-router-dom";
+import UserLogin from "./userlogin";
 
 export  default function HomePage(){
 
@@ -29,7 +31,8 @@ export  default function HomePage(){
             return <AboutUs/>
           case "contactus":
               return <ContactUs/>
-        
+          case "signin":
+            return <UserLogin/>
           default:
             return null;
       }
@@ -58,7 +61,7 @@ export  default function HomePage(){
                   <Nav className="ms-auto">
                     <Nav.Link  onClick={()=>{handleLinkClick('aboutus')}}>About Us</Nav.Link>
                     <Nav.Link  onClick={()=>{handleLinkClick('contactus')}}>Contact Us</Nav.Link>
-                    <Nav.Link href="#signin">
+                    <Nav.Link onClick={()=>{handleLinkClick('signin')}}>
                       <i className="fas fa-user"></i> Sign In
                     </Nav.Link>
                     <NavDropdown
@@ -73,6 +76,11 @@ export  default function HomePage(){
                         Farmer
                       </NavDropdown.Item>
                     </NavDropdown>
+                    <Nav.Link onClick={()=>{handleLinkClick('signin')}}>
+                   
+                     <img src={cart} alt="cart" height='40' /> 
+                     
+                    </Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
               </Container>
