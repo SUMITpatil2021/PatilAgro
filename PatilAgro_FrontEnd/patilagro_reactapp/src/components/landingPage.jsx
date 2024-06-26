@@ -8,25 +8,27 @@ import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
 import { useNavigate } from "react-router-dom";
 import UserLogin from "./userlogin";
+import './homepage.css';
+import Home from "./home";
 
-export  default function HomePage(){
+
+
+export  default function LandingPage(){
 
   const Navigate = useNavigate();
-  const[selectedLink, setSelectedLink] = useState();
+  const[selectedLink, setSelectedLink] = useState("home");
 
   const handleLinkClick = (link)=>{
       setSelectedLink(link);
      // Navigate(`/${link}`)
   };
-
   useEffect(()=>{
-      setSelectedLink()
+      setSelectedLink('home')
   },[]);
-
   const renderComponent = ()=>{
       switch(selectedLink){
-        case "":
-              return <HomePage/>
+        case "home":
+              return <Home/>
           case "aboutus": 
             return <AboutUs/>
           case "contactus":
@@ -88,6 +90,8 @@ export  default function HomePage(){
           </div>
         </header>
       </div>
+
+     
 
       <div>
       {renderComponent()}

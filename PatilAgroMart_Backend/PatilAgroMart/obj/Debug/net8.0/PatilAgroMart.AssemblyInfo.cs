@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PatilAgroMart")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26c1d22063d7174398b901d8ed9c8571c80d04e3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67c4631e1222b47ed5cf67730b6ef76421203cfb")]
 [assembly: System.Reflection.AssemblyProductAttribute("PatilAgroMart")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PatilAgroMart")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

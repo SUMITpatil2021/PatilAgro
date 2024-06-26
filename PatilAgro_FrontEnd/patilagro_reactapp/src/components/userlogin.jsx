@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import validator from 'validator';
-import HomePage from "./homepage";
+import HomePage from "./landingPage";
 
 const UserLogin = () => {
   const navigate = useNavigate();
