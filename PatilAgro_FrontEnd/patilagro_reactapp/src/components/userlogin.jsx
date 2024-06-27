@@ -2,9 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import validator from 'validator';
 import HomePage from "./landingPage";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+
+
+  const containerStyle = {
+    backgroundColor: '#f8f8f8', // Specify the background color
+    padding: '20px', // Example of adding padding
+    borderRadius: '10px', // Example of adding border radius
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' // Example of adding box shadow
+  };
 
 const UserLogin = () => {
   const navigate = useNavigate();
+
+  
 
   const [loginData, setLoginData] = useState({
     username: { value: "", valid: false, touched: false, error: "" },
@@ -128,10 +140,11 @@ const UserLogin = () => {
 
   console.log(errormsg)
 
+  
   return (
     <>
-      <div className="login template d-flex justify-content-center align-items-center vh-100 bg-secondary">
-        <div className="form_container p-5 rounded bg-white">
+      <div className="login template d-flex justify-content-center align-items-center vh-100 " >
+        <div className="form_container p-5 rounded " style={containerStyle}>
           <form>
             <h3 className="text-center">Sign In</h3>
             <div className="col mb-3">
@@ -140,7 +153,7 @@ const UserLogin = () => {
                 type="text"
                 name="username"
                 id="Username"
-                placeholder="eg. Supriya"
+                placeholder="eg. Sushant"
                 className="form-control"
                 value={loginData.username.value}
                 onChange={(e) => handleChange("username", e.target.value)}
@@ -154,7 +167,7 @@ const UserLogin = () => {
                 type="password"
                 name="password"
                 id="Password"
-                placeholder="eg. Supriya@123"
+                placeholder="eg. Sushant@123"
                 className="form-control"
                 value={loginData.password.value}
                 onChange={(e) => handleChange("password", e.target.value)}
@@ -179,10 +192,10 @@ const UserLogin = () => {
                 <Link to="/UserRegistration"> Signup</Link>
               </span>
             </div>
-
+<br />
             <button type="button" class="btn btn-primary">
   <a href='/' style={{ color: 'white', textDecoration: 'none'}}>
-    <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp; Home
+  <FontAwesomeIcon icon={faHome} />&nbsp; Home
   </a>
 </button>
             {/* <div className="row">
