@@ -3,8 +3,9 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import validator from 'validator';
 import HomePage from "./landingPage";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHome ,faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import UserDashboard from "../userComponents/userdashboard";
+import './userlogin.css';
 
 
   const containerStyle = {
@@ -27,10 +28,24 @@ const UserLogin = () => {
   const [errormsg, seterrormsg] = useState("");
   const [statuserror, setstatuserror] = useState("");
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  // const handleChange = (field, value) => {
+  //   setLoginData({
+  //     ...loginData,
+  //     [field]: { ...loginData[field], value },
+  //   });
+  // };
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
 
   const validateData = (key, val) => {
     let valid = false;
     let error = "";
+
 
     switch (key) {
       case "password":
@@ -166,19 +181,29 @@ const UserLogin = () => {
               {loginData.username.error && <span className="text-danger">{loginData.username.error}</span>}
             </div>
             <div className="col mb-3">
-              <label htmlFor="Password">Enter Password:</label>
-              <input
-                type="password"
-                name="password"
-                id="Password"
-                placeholder="eg. Sushant@123"
-                className="form-control"
-                value={loginData.password.value}
-                onChange={(e) => handleChange("password", e.target.value)}
-                onBlur={(e) => handleChange("password", e.target.value)}
-              />
-              {loginData.password.error && <span className="text-danger">{loginData.password.error}</span>}
-            </div>
+      <label htmlFor="Password">Enter Password:</label>
+      <div className="input-group">
+        <input
+          type={showPassword ? 'text' : 'password'}
+          name="password"
+          id="Password"
+          placeholder="eg. Sushant@123"
+          className="form-control"
+          value={loginData.password.value}
+          onChange={(e) => handleChange('password', e.target.value)}
+          onBlur={(e) => handleChange('password', e.target.value)}
+        />
+      
+
+        <div className="input-group-append">
+          <span className="input-group-text" onClick={toggleShowPassword} style={{ cursor: 'pointer' }}>
+            <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+          </span>
+        </div>
+      </div>
+      {loginData.password.error && <span className="text-danger">{loginData.password.error}</span>}
+    </div>
+
             <div className="d-grid">
               <input
                 type="button"
@@ -193,7 +218,7 @@ const UserLogin = () => {
 
             <div className="signup">
               <span className="signup">Don't have an Account?
-                <Link to="/UserRegistration"> Signup</Link>
+                <Link to="/signup"> Signup</Link>
               </span>
             </div>
 <br />

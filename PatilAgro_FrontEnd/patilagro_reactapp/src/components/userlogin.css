@@ -1,0 +1,13 @@
+.input-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-group .form-control {
+    flex: 1;
+  }
+  
+  .input-group .toggle-password {
+    margin-left: auto;
+  }
+  

@@ -7,6 +7,7 @@ import Footer from './components/footer';
 import LandingPage from './components/landingPage';
 import UserLogin from './components/userlogin';
 import UserDashboard from './userComponents/userdashboard';
+import SignUp from './components/signUp';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="contactus" element={<ContactUs/>}/>
         <Route path="footer" element={<Footer/>}/>
         <Route path="login" element={<UserLogin/>}/>
+        <Route path="signup" element={<SignUp/>}/>
 
         {/* //User Dashboard  */}
 
