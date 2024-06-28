@@ -27,5 +27,11 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseCors(builder =>
+{
+    builder.WithOrigins("http://localhost:3000") // Update with your React.js frontend URL
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
 
 app.Run();

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PatilAgroMart.Data;
+using PatilAgroMart.DTO;
 using PatilAgroMart.Models;
 
 namespace PatilAgroMart.Controllers
@@ -23,5 +25,22 @@ namespace PatilAgroMart.Controllers
 
             return Ok(user );
         }
+
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
+        {
+            var user = await _appDbContext.Users
+                .Where(u => u.Username == loginModel.Username && u.Password == loginModel.Password)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return Unauthorized("Invalid credentials.");
+            }
+
+            return Ok(new { Message = "Login successful", User = user });
+        }
+
     }
 }

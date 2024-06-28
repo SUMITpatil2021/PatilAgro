@@ -4,6 +4,7 @@ import validator from 'validator';
 import HomePage from "./landingPage";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import UserDashboard from "../userComponents/userdashboard";
 
 
   const containerStyle = {
@@ -84,7 +85,7 @@ const UserLogin = () => {
     };
 
     console.log(options.username, options.password)
-    fetch("http://localhost:8080/login",options)
+    fetch("https://localhost:7250/api/Users/login",options)
     .then((response)=>{
       if(response.ok){
         return response.json()}
@@ -92,46 +93,49 @@ const UserLogin = () => {
           throw new Error("service error");
         }})
 
-    .then((data)=>{
-        console.log(data);
-      if(data.roleid==1){
-        //dispatch(login())
-        //  if(loginState){
-        //   navigate("/Admin")
-        //  }
-        navigate("/Admin")
+    // .then((data)=>{
+    //     console.log(data);
+    //   if(data.roleid==1){
+    //     //dispatch(login())
+    //     //  if(loginState){
+    //     //   navigate("/Admin")
+    //     //  }
+    //     navigate("/Admin")
            
-         }
-         if(data.roleid==2){
-           //dispatch(login())
-        //    if(loginState){
-        //      navigate("/Trekker")
-        //    }
-         localStorage.setItem('userid', data.clubid);
-         console.log(data.clubid)
-        navigate("/Trekker")
-         }
-         if(data.roleid==3){
-            //dispatch(login())
-            //  if(loginState){
-            //   navigate("/TrekkingClub")
-            //  } 
-            if(data.status == 0){
-              setstatuserror("Trekking club is not approved")
-              // navigate("/UserLogin")
-            }
-            else{
-              localStorage.setItem('clubid', data.clubid);
-              navigate("/TrekkingClub")  
-            }
+    //      }
+    //      if(data.roleid==2){
+    //        //dispatch(login())
+    //     //    if(loginState){
+    //     //      navigate("/Trekker")
+    //     //    }
+    //      localStorage.setItem('userid', data.clubid);
+    //      console.log(data.clubid)
+    //     navigate("/Trekker")
+    //      }
+    //      if(data.roleid==3){
+    //         //dispatch(login())
+    //         //  if(loginState){
+    //         //   navigate("/TrekkingClub")
+    //         //  } 
+    //         if(data.status == 0){
+    //           setstatuserror("Trekking club is not approved")
+    //           // navigate("/UserLogin")
+    //         }
+    //         else{
+    //           localStorage.setItem('clubid', data.clubid);
+    //           navigate("/TrekkingClub")  
+    //         }
                    
-        }
-         if(data.roleid == -1){
-           seterrormsg("Please enter valid credentials")
-          //  navigate("/UserLogin")
-         }
-    })
-    .catch((error) =>{
+    //     }
+    //      if(data.roleid == -1){
+    //        seterrormsg("Please enter valid credentials")
+    //       //  navigate("/UserLogin")
+    //      }
+    // })
+    .then((data)=>{
+      console.log(JSON.stringify(data))
+      navigate("userdashboard")
+    }).catch((error) =>{
       navigate("/serverError");
     })
 };

@@ -3,6 +3,8 @@ import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import Cart from "./cart";
 import Footer from "../components/footer";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 export default function UserDashboard(){
 
@@ -29,7 +31,7 @@ export default function UserDashboard(){
           
             <Navbar bg="dark" variant="dark" expand="lg"  >
                 <Container>
-                    <Navbar.Brand >Sahyadri Navigator</Navbar.Brand>
+                    <Navbar.Brand >Patil AgroMart <FontAwesomeIcon icon={faShoppingCart} /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">

@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Footer from './components/footer';
 import LandingPage from './components/landingPage';
 import UserLogin from './components/userlogin';
+import UserDashboard from './userComponents/userdashboard';
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
         <Route path="contactus" element={<ContactUs/>}/>
         <Route path="footer" element={<Footer/>}/>
         <Route path="login" element={<UserLogin/>}/>
+
+        {/* //User Dashboard  */}
+
+        <Route path="userdashboard" element={<UserDashboard/>}/>
 
       </Routes>
     </div>
