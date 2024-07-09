@@ -20,7 +20,15 @@ export  default function LandingPage(){
 
   const handleLinkClick = (link)=>{
       setSelectedLink(link);
+      handleCollapse();
      // Navigate(`/${link}`)
+  };
+
+  const handleCollapse = () => {
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse.classList.contains('show')) {
+      navbarCollapse.classList.remove('show');
+    }
   };
   useEffect(()=>{
       setSelectedLink('home')
